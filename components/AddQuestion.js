@@ -32,7 +32,7 @@ const AddQuestion = ({ roomid }) => {
               </div>
               <div className="field">
                 <label className="checkbox">
-                  <input type="checkbox" isChecked={isLatex} onChange={e => setIsLatex(e.target.checked)} />
+                  <input type="checkbox" checked={isLatex} onChange={e => setIsLatex(e.target.checked)} />
                   Use advanced formatting (TeX)
                 </label>
               </div>

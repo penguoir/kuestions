@@ -4,6 +4,7 @@ import RoomHeading from '../components/RoomHeading'
 import Question from '../components/Question'
 import Questions from '../components/Questions'
 import AddQuestion from '../components/AddQuestion'
+import Layout from '../components/Layout'
 
 const RoomPage = () => {
   const router = useRouter()
@@ -11,7 +12,7 @@ const RoomPage = () => {
   const { questions, error } = useQuestions(roomid)
   
   return (
-    <>
+    <Layout>
       <RoomHeading roomid={roomid} questions={questions} />
       <AddQuestion roomid={roomid} />
 
@@ -20,11 +21,7 @@ const RoomPage = () => {
           <Question key={question.id} snapshot={question} />
         ))}
       </Questions>
-
-      <div className="footer">
-        Copyright (c) 2020 Ori Marash
-      </div>
-    </>
+    </Layout>
   )
 }
 
