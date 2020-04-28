@@ -7,7 +7,7 @@ const RoomHeading = ({ roomid, questions }) => {
         <Hero.Body>
           <Container>
             <Heading>
-              Your room code is <span className="tag is-large">{roomid}</span>
+              Your room code is <em>{roomid}</em>
             </Heading>
             {(questions && questions.length) ? (
               <Heading subtitle size={4}>
@@ -18,6 +18,13 @@ const RoomHeading = ({ roomid, questions }) => {
                 No questions
               </Heading>
             )}
+
+            <br />
+
+            <Heading size={4} style={{ marginBottom: '.5rem' }}>
+              Students can join through this link:
+            </Heading>
+            <input onFocus={e => e.target.select()} className="input" readOnly value={"https://kuestions.now.sh/" + roomid} type="text"/>
           </Container>
         </Hero.Body>
       </Hero>

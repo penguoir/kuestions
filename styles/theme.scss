@@ -4,10 +4,10 @@
 
 @import "~bulma/bulma";
 
-*:hover > .is-danger {
+*:hover > span.is-danger {
     color: $black;
 }
 
-.is-danger {
+span.is-danger {
     color: $danger;
 }

@@ -22,23 +22,27 @@ export default function Home() {
           <div className="container">
             <h1 className="title is-1">Kuestions</h1>
             <p className="subtitle is-4">Easy questions and answers for online conference teaching.</p>
-          </div>
-        </div>
-      </div>
-      <div className="hero is-light">
-        <div className="hero-body">
-          <div className="container">
-            <h2 className="subtitle is-4">Enter your room id</h2>
             <div className="field has-addons">
               <div className="control" style={{ width: '100%' }}>
                 <input value={roomId} onChange={e => setRoomId(e.target.value)} className="input" type="text" placeholder="Enter your room id" />
               </div>
-              <div className="control">
-                <button onClick={e => {router.push('/' + roomId)}} type='submit' className="button is-info">
-                  Go to room
-                </button>
-              </div>
-            </div>
+            </div> 
+
+            <button onClick={e => {router.push('/' + roomId)}} type='submit' className="button is-info">
+              Go to room
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className="hero is-medium is-light">
+        <div className="hero-body">
+          <div className="container">
+            <h2 className="subtitle is-3">How it works</h2>
+            <p style={{ maxWidth: '50rem' }}>
+              Every class has a "Room code", a passcode which directs students and teachers to their room. There, students can ask questions and the teacher can see them in real time.<br /><br />
+              Students can join either by clicking a link or entering the code.
+            </p>
           </div>
         </div>
       </div>

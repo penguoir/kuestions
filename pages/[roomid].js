@@ -20,6 +20,10 @@ const RoomPage = () => {
           <Question key={question.id} snapshot={question} />
         ))}
       </Questions>
+
+      <div className="footer">
+        Copyright (c) 2020 Ori Marash
+      </div>
     </>
   )
 }

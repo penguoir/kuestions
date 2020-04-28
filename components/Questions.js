@@ -1,14 +1,21 @@
 import { Container } from 'react-bulma-components'
 
 const Questions = (props) => {
-    return (
-        <Container style={{ margin: '1rem auto', padding: '1rem 8px' }}>
-            <h2 className="subtitle">Questions</h2>
-            <div className="columns">
-                {props.children}
+  return (
+    <section className="section">
+      <Container>
+        <h2 className="subtitle">Questions</h2>
+        {!(props.children && props.children.length) && (
+            <div className="notification is-danger">
+              No questions.
             </div>
-        </Container>
-    )
+        )}
+        <div className="columns is-multiline">
+          {props.children}
+        </div>
+      </Container>
+    </section>
+  )
 }
 
 export default Questions

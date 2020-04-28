@@ -16,24 +16,32 @@ if (!firebase.apps.length) {
 }
 
 const useQuestions = (roomid) => {
-    const [questions, setQuestions] = useState(null)
-    const [error, setError] = useState(null)
+  const [questions, setQuestions] = useState(null)
+  const [error, setError] = useState(null)
 
-    function handleSnapshot (snapshot) {
-        setQuestions(snapshot.docs)
+  function handleSnapshot (snapshot) {
+    const docs = snapshot.docs
+    const sorted_docs = docs.sort((a,b) => a.data().timestamp - b.data().timestamp)
+    setQuestions(sorted_docs)
+  }
+
+  useEffect(() => {
+    let unsubscribe = () => {}
+
+    if (roomid) {
+      unsubscribe = firebase.firestore()
+        .collection(`questions`)
+        .where('roomid', '==', roomid)
+        .onSnapshot(
+          snapshot => handleSnapshot(snapshot),
+          err => setError(err)
+        )
     }
+    
+    return () => { unsubscribe() }
+  }, [roomid])
 
-    if (roomid) {   
-        firebase.firestore()
-            .collection(`questions`)
-            .where('roomid', '==', roomid)
-            .onSnapshot(
-                snapshot => handleSnapshot(snapshot),
-                err => setError(err)
-            )
-    }
-
-    return { questions, error }
+  return { questions, error }
 }
 
 export default useQuestions
