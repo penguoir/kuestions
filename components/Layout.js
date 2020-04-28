@@ -2,10 +2,13 @@ import Head from 'next/head'
 import { FaPlus } from 'react-icons/fa'
 import useWindowSize from '../util/useWindowSize'
 import { useState } from 'react'
+import { useRouter } from 'next/router'
+import makeid from '../util/makeId'
 
 const Layout = (props) => {
   const size = useWindowSize()
   const [navbarIsOpen, setNavbarIsOpen] = useState(false)
+  const router = useRouter()
 
   return (
     <>
@@ -35,7 +38,7 @@ const Layout = (props) => {
           )
            && (
             <div class="navbar-item">
-              <a class="button is-primary" href="https://github.com/jgthms/bulma/releases/download/0.8.2/bulma-0.8.2.zip">
+              <a class="button is-primary" onClick={e => {router.push('/' + makeid())}}>
                 <span class="icon">
                   <FaPlus />
                 </span>

@@ -2,17 +2,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/router' 
 import Layout from '../components/Layout'
 import Link from 'next/link'
-
-
-function makeid(length=4) {
-   var result           = '';
-   var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-   var charactersLength = characters.length;
-   for ( var i = 0; i < length; i++ ) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
-   }
-   return result;
-}
+import makeid from '../util/makeId'
 
 const Home = () => {
   const [roomId, setRoomId] = useState('')
@@ -52,11 +42,13 @@ const Home = () => {
         </div>
       </div>
 
-      <div className='hero'>
+      <div className='hero is-info'>
         <div className='hero-body'>
           <div className='container'>
-            <h2 className='subtitle is-4'>Create a new room</h2>
-            <button onClick={e => {router.push('/' + makeid())}} type='submit' className='button is-info'>
+            <h2 style={{ marginBottom: '.5rem' }} className='subtitle is-4'>Create a new room</h2>
+            <p>Create a new room with a random 4-digit code.</p>
+            <br/>
+            <button onClick={e => {router.push('/' + makeid())}} type='submit' className='button'>
               Go to your new room
             </button>
           </div>
