@@ -1,0 +1,22 @@
+{
+  "name": "kuestions",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "bulma": "^0.8.2",
+    "firebase": "^7.14.2",
+    "next": "9.3.5",
+    "next-compose-plugins": "^2.2.0",
+    "nprogress": "^0.2.0",
+    "react": "16.13.1",
+    "react-bulma-components": "^3.2.0",
+    "react-dom": "16.13.1",
+    "sass": "^1.26.5"
+  }
+}

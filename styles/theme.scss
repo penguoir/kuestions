@@ -1,0 +1,13 @@
+@import '~bulma/sass/utilities/initial-variables';
+
+// Make changes to colours here
+
+@import "~bulma/bulma";
+
+*:hover > .is-danger {
+    color: $black;
+}
+
+.is-danger {
+    color: $danger;
+}
